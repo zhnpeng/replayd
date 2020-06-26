@@ -68,7 +68,7 @@ make sure /ets/hosts has follow line:
 ```
 127.0.0.1 host.docker.internal
 ```
-or modify '''KAFKA_ADVERTISED_HOST_NAME''' in ```replayd/docker/kafka-docker-compose.yml``` to your host name
+or modify ```KAFKA_ADVERTISED_HOST_NAME``` in ```replayd/docker/kafka-docker-compose.yml``` to your host name
 
 startup kafka docker
 ```
