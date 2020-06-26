@@ -1,0 +1,59 @@
+[
+    {
+        "name": "this is the request record",
+        "type": "json",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "ID": {
+                    "type": "uuid"
+                },
+                "REQUEST_TIME": {
+                    "type": "datetime"
+                },
+                "TYPE": {
+                    "type": "literal",
+                    "value": "Request"
+                },
+                "TIME_COST": {
+                    "type": "integer",
+                    "min_value": 100,
+                    "max_value": 900
+                },
+                "TRACE_ID": {
+                    "type": "uuid_scope",
+                    "scope": "trace"
+                }
+            }
+        }
+    },
+    {
+        "name": "this is the response record",
+        "type": "json",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "ID": {
+                    "type": "uuid"
+                },
+                "REQUEST_TIME": {
+                    "type": "datetime",
+                    "delta": 1000
+                },
+                "TYPE": {
+                    "type": "literal",
+                    "value": "Response"
+                },
+                "TIME_COST": {
+                    "type": "integer",
+                    "min_value": 100,
+                    "max_value": 900
+                },
+                "TRACE_ID": {
+                    "type": "uuid_scope",
+                    "scope": "trace"
+                }
+            }
+        }
+    }
+]

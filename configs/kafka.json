@@ -1,0 +1,11 @@
+{
+    "type": "kafka",
+    "topics": [
+        "test"
+    ],
+    "kafka_params": {
+        "bootstrap_servers": [
+            "localhost:9092"
+        ]
+    }
+}

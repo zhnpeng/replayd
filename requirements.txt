@@ -1,0 +1,4 @@
+faker
+xmltodict
+kafka-python
+xeger
