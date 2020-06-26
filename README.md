@@ -15,12 +15,27 @@ xmltodict
 kafka-python
 xeger
 
-## install
+## download & install
 
 ```
-cd ./replayd
-pip install ./
+git clone https://your_name@git.netisdev.com/scm/nc/replayd.git
+pip install ./replayd
+replayd -h
 ```
+
+## parameters
+
+param | required | default | description
+--- | --- | --- | ---
+--mode, -m | yes | | mode，sample or schema，schema means generate data according to schema
+--loop, -l | no | 1 | how many times should replay，0 represent for infinite
+--aware-datetime, -a | no | | whether should replace datetime field with processing time，work for sample data in json format
+--datetime-format, -d | no | | datetime format，required when aware-datetime is true
+--interval, -t | no | 0 | replay interval，in second，default is 0 represent for no interval
+--input, -i | yes | | sample or schema file
+--output, -o | no | | sinker config file，support kafka config file，if this is not set means sink to stdout
+--encoding, -e | no | utf-8 | encoding
+
 
 ## replay data with schema to stdout
 
@@ -43,4 +58,19 @@ replayd -m schema -i examples/schema.json -o config/kafka.json
 replayd -m sample -i examples/sample.txt
 or
 replayd -m sample -i examples/sample.json
+```
+
+## use kafka docker
+
+required[docker-compose](https://docs.docker.com/compose/install/)
+
+make sure /ets/hosts has follow line:
+```
+127.0.0.1 host.docker.internal
+```
+or modify '''KAFKA_ADVERTISED_HOST_NAME''' in ```replayd/docker/kafka-docker-compose.yml``` to your host name
+
+startup kafka docker
+```
+docker-compose -f replayd/docker/kafka-docker-compose.yml up -d
 ```
